@@ -1,8 +1,13 @@
 // const classes = {"firstLink":"firstSet", "secondLink":"secondSet", "thirdLink":"thirdSet"}
 const options = document.getElementsByClassName("options");
-console.log(options)
 function createLinks(el) {
     const linkArea = document.getElementsByClassName(el.classList[0]);
+    if (linkArea[3].children.length > 0) {
+        let parent = linkArea[3].childNodes;
+        while (parent.length > 0) {
+            linkArea[3].removeChild(linkArea[3].lastChild)
+        }
+    }
     createLink(linkArea);
     appendText(linkArea);
   }
