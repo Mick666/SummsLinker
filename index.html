@@ -12,10 +12,15 @@
         Could also push inserted summaries to a google sheet to exchange them
     -->
     <div class="wrapper">
-        <div>
-            <h2 class="text box" id="link">Options</h2>
+        <h2 class="text box" id="options">Options</h2>
+        <div class="row">
+            <h2 class="text box" id="link">Link</h2>
+            <h2 class="text box" id="text">Text</h2>
+            <button id="allButt" class="butts" type="button" onclick="createAllLinks()">Link all</button>
+            <button id="allReset" class="butts" type="button" onclick="clearAllFields()">Clear all fields</button>
         </div>
-        <div class="optionButtons">
+
+        <div class="optionButtons row">
             <!-- <label class="container menus" id="resetOpt">
                 <button type="button">Reset options</button>
             </label> -->
@@ -38,40 +43,34 @@
             </label>
             
         </div>
-        <div class="row">
-            <h2 class="text box" id="link">Link</h2>
-            <h2 class="text box" id="text">Text</h2>
-            <button id="allButt" class="butts" type="button" onclick="createAllLinks()">Link all</button>
-            <button id="allReset" class="butts" type="button" onclick="clearAllFields()">Clear all fields</button>
-        </div>
         
-        <div class="row">
+        <div class="row notOpts">
             <textarea class="firstLink box" rows="5" cols="30">https://www.google.com/</textarea>
             <textarea class="firstLink box" rows="5" cols="30">The Australian Financial Review reports the federal government has banned all non-essential gatherings of 100 or more people indoors and Prime Minister Scott Morrison and Chief Medical Officer Brendan Murphy said the measures could be in place for at least six months. Mr Morrison said that the measures taken must be “sustainable” so the country can function during the lockdown.</textarea>
             <button id="firstButton" class="firstLink butts" type="button" onclick="createLinks(this)">>></button>
             <p class="firstLink box output"></p>
         </div>
         
-        <div class="row">
+        <div class="row notOpts">
             <textarea class="secondLink box" rows="5" cols="30"></textarea>
             <textarea class="secondLink box" rows="5" cols="30"></textarea>
             <button class="secondLink butts" type="button" onclick="createLinks(this)">>></button>
             <p class="secondLink box output"></p>
         </div>  
         
-        <div class="row">
+        <div class="row notOpts">
             <textarea class="thirdLink box" rows="5" cols="30"></textarea>
             <textarea class="thirdLink box" rows="5" cols="30"></textarea>
             <button class="thirdLink butts" type="button" onclick="createLinks(this)">>></button>
             <p class="thirdLink box output"></p>
         </div>
-        <div class="row">
+        <div class="row notOpts">
             <textarea class="fourthLink box" rows="5" cols="30"></textarea>
             <textarea class="fourthLink box" rows="5" cols="30"></textarea>
             <button class="fourthLink butts" type="button" onclick="createLinks(this)">>></button>
             <p class="fourthLink box output"></p>
         </div>
-        <div class="row">
+        <div class="row notOpts">
             <textarea class="fifthLink box" rows="5" cols="30"></textarea>
             <textarea class="fifthLink box" rows="5" cols="30"></textarea>
             <button class="fifthLink butts" type="button" onclick="createLinks(this)">>></button>
