@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="script.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>Summaries Linker</title>
+    </head>
+<body>
+    <!-- here goes the two text fields; class name for the two and Id for indiv
+    Should activate on Enter but also a button to press for same efffec 
+    final creation should have 5 rows
+    Could also push inserted summaries to a google sheet to exchange them
+    -->
+    <div class="grid">
+      <div id="text">
+        <p>
+          Link
+        </p>
+      </div>
+      <div>
+      <span>
+        <textarea class="firstLink" rows="5" cols="30">https://stackoverflow.com/questions/1700062/change-link-text-in-html-using-javascript</textarea>
+        <textarea class="firstLink" rows="5" cols="30">The Australian Financial Review reports the</textarea>
+        <input id="firstButton" class="firstLink" type="submit" onclick="createLinks(this)">
+        <div class="firstLink" id="firstCombined"></div>
+        </span>
+      </div>
+       <div>
+        <textarea class="secondLink" rows="5" cols="30"></textarea>
+        <textarea class="secondLink" rows="5" cols="30"></textarea>
+        <input class="secondLink buttons" type="submit" onclick="createLinks(this)">
+        <div class="secondLink">
+        </div>
+      </div> 
+  
+      <div>
+        <textarea class="thirdLink" rows="5" cols="30"></textarea>
+        <textarea class="thirdLink" rows="5" cols="30"></textarea>
+        <input class="secondLink buttons" type="submit" onclick="createLinks(this)">
+        <div class="thirdLink">
+        </div>
+      </div>
+    </div>
+  
+  </body>
+  <script>
+    /* Need to find way to insert a link into text for javascript.
+    regex to find the outlet name
+    options like the, page number and such.
+    combined option to paste straight into platform
+    reverse summary style option */
+  
+  </script>
+</html>
