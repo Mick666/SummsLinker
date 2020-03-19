@@ -76,7 +76,6 @@ function createAllLinks() {
             }
         }
         createLink(linkArea);
-        appendText(linkArea);
     }
     
 }
