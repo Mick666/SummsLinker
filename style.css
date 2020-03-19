@@ -1,0 +1,43 @@
+body {
+    margin: 40px;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto;
+    grid-gap: 15px;
+    background-color: #fff;
+    color: #444;
+}
+.firstLink {
+    grid-row: 2;
+}
+.secondLink {
+    grid-row: 3;
+}
+.thirdLink {
+    grid-row: 4;
+}
+.box {
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+} 
+.butts {
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+    outline: 1px solid lightgrey;
+    color: lightgray;
+}
+.output {
+    border: 3px solid lightgray;
+    width: 300px;
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 75%;
+}

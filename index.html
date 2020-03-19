@@ -11,35 +11,24 @@
     final creation should have 5 rows
     Could also push inserted summaries to a google sheet to exchange them
     -->
-    <div class="grid">
-      <div id="text">
-        <p>
-          Link
-        </p>
-      </div>
-      <div>
-      <span>
-        <textarea class="firstLink" rows="5" cols="30">https://stackoverflow.com/questions/1700062/change-link-text-in-html-using-javascript</textarea>
-        <textarea class="firstLink" rows="5" cols="30">The Australian Financial Review reports the</textarea>
-        <input id="firstButton" class="firstLink" type="submit" onclick="createLinks(this)">
-        <div class="firstLink" id="firstCombined"></div>
-        </span>
-      </div>
-       <div>
-        <textarea class="secondLink" rows="5" cols="30"></textarea>
-        <textarea class="secondLink" rows="5" cols="30"></textarea>
-        <input class="secondLink buttons" type="submit" onclick="createLinks(this)">
-        <div class="secondLink">
-        </div>
-      </div> 
-  
-      <div>
-        <textarea class="thirdLink" rows="5" cols="30"></textarea>
-        <textarea class="thirdLink" rows="5" cols="30"></textarea>
-        <input class="secondLink buttons" type="submit" onclick="createLinks(this)">
-        <div class="thirdLink">
-        </div>
-      </div>
+    <div class="wrapper">
+        <p class="text box" id="link">Link</p>
+        <p class="text box" id="text">Text</p>
+
+        <textarea class="firstLink box" rows="5" cols="30">https://www.google.com/</textarea>
+        <textarea class="firstLink box" rows="5" cols="30">The Australian Financial Review reports the federal government has banned all non-essential gatherings of 100 or more people indoors and Prime Minister Scott Morrison and Chief Medical Officer Brendan Murphy said the measures could be in place for at least six months. Mr Morrison said that the measures taken must be “sustainable” so the country can function during the lockdown.</textarea>
+        <button id="firstButton" class="firstLink butts" type="button" onclick="createLinks(this)">>></button>
+        <p class="firstLink box output"></p>
+    
+        <textarea class="secondLink box" rows="5" cols="30"></textarea>
+        <textarea class="secondLink box" rows="5" cols="30"></textarea>
+        <button class="secondLink butts" type="button" onclick="createLinks(this)">>></button>
+        <p class="secondLink box output"></p>
+
+        <textarea class="thirdLink box" rows="5" cols="30"></textarea>
+        <textarea class="thirdLink box" rows="5" cols="30"></textarea>
+        <button class="thirdLink butts" type="button" onclick="createLinks(this)"> >></button>
+        <p class="thirdLink box output"></p>
     </div>
   
   </body>
