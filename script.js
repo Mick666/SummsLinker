@@ -11,7 +11,6 @@ function createLinks(el) {
         }
     }
     createLink(linkArea);
-    appendText(linkArea);
 }
 
 function createLink(classElem) {
@@ -88,7 +87,6 @@ function clearAllFields() {
         for (let i = 0; i < linkArea.length; i++) {
             if (i == 2) continue;
             linkArea[i].innerHTML = ""
-            // console.log(linkArea[i])
             if (linkArea[i].type == "textarea") linkArea[i].value = ""
         }
     }

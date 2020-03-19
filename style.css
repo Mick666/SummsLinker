@@ -66,6 +66,18 @@ body {
     color: #fff;
     padding: 10px;
     font-size: 75%;
+    font: 400 13.3333px Arial;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    letter-spacing: normal;
+    word-spacing: normal;
+    -webkit-rtl-ordering: logical;
+    flex-direction: column;
+    resize: auto;
+    cursor: text;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
 }
 .text {
     background-color: #DCDCDC;
