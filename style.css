@@ -1,13 +1,14 @@
 body {
     margin: 40px;
+    background-color: #DCDCDC;
 }
+
 
 .wrapper {
     display: grid;
     grid-template-columns: auto auto auto auto auto;
     grid-template-rows: auto auto auto auto auto;
     grid-gap: 15px;
-    background-color: #fff;
     color: #444;
 }
 .firstLink {
@@ -26,6 +27,7 @@ body {
     padding: 20px;
 } 
 .butts {
+    background-color: #444;
     padding: 20px;
     font-size: 20px;
     text-align: center;
@@ -40,4 +42,11 @@ body {
     border-radius: 5px;
     padding: 10px;
     font-size: 75%;
+}
+.text {
+    background-color: #DCDCDC;
+    color: black;
+}
+a {
+    color: black;
 }
