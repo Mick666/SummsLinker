@@ -1,7 +1,6 @@
 // const classes = {"firstLink":"firstSet", "secondLink":"secondSet", "thirdLink":"thirdSet"}
 const options = document.getElementsByClassName("options");
 const classes = ["firstLink", "secondLink", "thirdLink", "fourthLink", "fifthLink"];
-let regex = (/^.*(?= reports)/)
 
 function createLinks(el) {
     const linkArea = document.getElementsByClassName(el.classList[0]);
@@ -16,39 +15,57 @@ function createLinks(el) {
 }
 
 function createLink(classElem) {
-    console.log(classElem)
     const link = classElem[0];
     var text = classElem[1].value;
     var para = classElem[3];
     var linkComb = document.createElement("a");
-    
     if (options[1].checked) var bold = document.createElement("b");
     if (options[2].checked) var italic = document.createElement("i");
-
-    linkComb.text = text.match(/^.*(?= reports)/)[0];
-    
-    linkComb.href = link.value;
-    if (bold) {
-        if (italic) {
-            italic.appendChild(linkComb)
-            bold.appendChild(italic)
-        } else bold.appendChild(linkComb);
-        
-        para.appendChild(bold)
-    } else if (italic) {
-        italic.appendChild(linkComb);
-        para.appendChild(italic)
-    } else {
-        para.appendChild(linkComb)
+    if (!options[3].checked && options[0].value == "Standard") {
+        text = text.slice(4);
+        para.appendChild(document.createTextNode("The "))
+    }
+    if (options[0].value == "Standard" || options[0].value == "") {
+        linkComb.text = text.match(/^.*(?= reports)/)[0];
+        linkComb.href = link.value;
+        appendLinks();
+        appendText();
+    } else if (options[0].value == "Industry") {
+        appendText();
+        linkComb.text = text.match(/( - )(.*)$/)[2];
+        linkComb.href = link.value;
+        console.log(linkComb)
+        appendLinks();
+    }
+    function appendLinks(){
+        if (bold) {
+            if (italic) {
+                italic.appendChild(linkComb)
+                bold.appendChild(italic)
+            } else bold.appendChild(linkComb);
+            para.appendChild(bold)
+        } else if (italic) {
+            italic.appendChild(linkComb);
+            para.appendChild(italic)
+        } else {
+            para.appendChild(linkComb)
+        }
+    }
+    function appendText() {
+        var text = classElem[1].value;
+        var para = classElem[3];
+        if (options[0].value == "Standard" || options[0].value == "") {
+            let textComb = text.split(/^.*(?= reports)/)[1];
+            para.appendChild(document.createTextNode(textComb))
+        } else if (options[0].value == "Industry") {
+            var match = text.match(/( - )(.*)$/);
+            textComb = text.slice(0, match.index + 3);
+            para.appendChild(document.createTextNode(textComb))
+        }
     }
 }
 
-function appendText(classElem, para) {
-    var text = classElem[1].value;
-    var linkComb = text.split(/^.*(?= reports)/)[1];
-    var para = classElem[3];
-    para.appendChild(document.createTextNode(linkComb))
-}
+
 
 function createAllLinks() {
     for (let i = 0; i < classes.length; i++) {
