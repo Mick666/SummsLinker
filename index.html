@@ -1,43 +1,79 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <script src="script.js"></script>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <title>Summaries Linker</title>
-    </head>
+<head>
+    <script src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Summaries Linker</title>
+</head>
 <body>
     <!-- here goes the two text fields; class name for the two and Id for indiv
-    Should activate on Enter but also a button to press for same efffec 
-    final creation should have 5 rows
-    Could also push inserted summaries to a google sheet to exchange them
+        Should activate on Enter but also a button to press for same efffec 
+        final creation should have 5 rows
+        Could also push inserted summaries to a google sheet to exchange them
     -->
     <div class="wrapper">
-        <p class="text box" id="link">Link</p>
-        <p class="text box" id="text">Text</p>
+        <div>
+            <h2 class="text box" id="link">Options</h2>
+        </div>
+        <div class="optionButtons">
+            <label class="container menus" id="resetOpt">
+                <button type="button">Reset options</button>
+            </label>
+            <label class="container menus">
+                <select class="options" id="summaries" size="2">
+                    <option value="Standard">Standard summary</option>
+                    <option value="Coles">Coles/Industry style summary</option>
+                </select>
+            </label>
+            <label class="container">Bold
+                <input class="options" type="checkbox">
 
-        <textarea class="firstLink box" rows="5" cols="30">https://www.google.com/</textarea>
-        <textarea class="firstLink box" rows="5" cols="30">The Australian Financial Review reports the federal government has banned all non-essential gatherings of 100 or more people indoors and Prime Minister Scott Morrison and Chief Medical Officer Brendan Murphy said the measures could be in place for at least six months. Mr Morrison said that the measures taken must be “sustainable” so the country can function during the lockdown.</textarea>
-        <button id="firstButton" class="firstLink butts" type="button" onclick="createLinks(this)">>></button>
-        <p class="firstLink box output"></p>
-    
-        <textarea class="secondLink box" rows="5" cols="30"></textarea>
-        <textarea class="secondLink box" rows="5" cols="30"></textarea>
-        <button class="secondLink butts" type="button" onclick="createLinks(this)">>></button>
-        <p class="secondLink box output"></p>
-
-        <textarea class="thirdLink box" rows="5" cols="30"></textarea>
-        <textarea class="thirdLink box" rows="5" cols="30"></textarea>
-        <button class="thirdLink butts" type="button" onclick="createLinks(this)"> >></button>
-        <p class="thirdLink box output"></p>
+            </label>
+            <label class="container">Italic
+                <input type="checkbox" class="options">
+            </label>
+            <label class="container">Link 'The'
+                <input type="checkbox" checked="checked" class="options">
+            </label>
+            <label class="container">Link page number
+                <input type="checkbox" class="options">
+            </label>
+            
+        </div>
+        <div class="row">
+            <h2 class="text box" id="link">Link</h2>
+            <h2 class="text box" id="text">Text</h2>
+            <button id="allButt" class="butts" type="button" onclick="createLinks(this)">>></button>
+        </div>
+        
+        <div class="row">
+            <textarea class="firstLink box" rows="5" cols="30">https://www.google.com/</textarea>
+            <textarea class="firstLink box" rows="5" cols="30">The Australian Financial Review reports the federal government has banned all non-essential gatherings of 100 or more people indoors and Prime Minister Scott Morrison and Chief Medical Officer Brendan Murphy said the measures could be in place for at least six months. Mr Morrison said that the measures taken must be “sustainable” so the country can function during the lockdown.</textarea>
+            <button id="firstButton" class="firstLink butts" type="button" onclick="createLinks(this)">>></button>
+            <p class="firstLink box output"></p>
+        </div>
+        
+        <div class="row">
+            <textarea class="secondLink box" rows="5" cols="30"></textarea>
+            <textarea class="secondLink box" rows="5" cols="30"></textarea>
+            <button class="secondLink butts" type="button" onclick="createLinks(this)">>></button>
+            <p class="secondLink box output"></p>
+        </div>  
+        
+        <div class="row">
+            <textarea class="thirdLink box" rows="5" cols="30"></textarea>
+            <textarea class="thirdLink box" rows="5" cols="30"></textarea>
+            <button class="thirdLink butts" type="button" onclick="createLinks(this)"> >></button>
+            <p class="thirdLink box output"></p>
+        </div>
     </div>
-  
-  </body>
-  <script>
+</body>
+<script>
     /* Need to find way to insert a link into text for javascript.
     regex to find the outlet name
     options like the, page number and such.
     combined option to paste straight into platform
     reverse summary style option */
-  
-  </script>
+    
+</script>
 </html>

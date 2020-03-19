@@ -1,4 +1,6 @@
 // const classes = {"firstLink":"firstSet", "secondLink":"secondSet", "thirdLink":"thirdSet"}
+const options = document.getElementsByClassName("options");
+console.log(options)
 function createLinks(el) {
     const linkArea = document.getElementsByClassName(el.classList[0]);
     createLink(linkArea);
@@ -13,6 +15,8 @@ function createLinks(el) {
   
     var linkComb = document.createElement("a");
     linkComb.text = text.match(/^.*(?= reports)/)[0];
+    if (options[1].checked) linkComb.style.fontWeight = "bold"
+    if (options[2].checked) linkComb.style.fontStyle = "italic"
     linkComb.href = link.value;
     para.appendChild(linkComb)
   }
