@@ -1,23 +1,25 @@
 // const classes = {"firstLink":"firstSet", "secondLink":"secondSet", "thirdLink":"thirdSet"}
 let options = document.getElementsByClassName("options");
 let classes = ["firstLink", "secondLink", "thirdLink", "fourthLink", "fifthLink"];
-const outputDiv = document.getElementsByClassName("output")[0];
+let classValue = {"linkElems":0,"textElems": 1,};
+const outputDiv = document.getElementsByClassName("output");
+let ouputParas = [null, null, null, null];
 
 function createLinks(el) {
     const linkArea = document.getElementsByClassName(el.classList[0]);
-    if (linkArea[3].children.length > 0) {
-        let parent = linkArea[3].childNodes;
-        while (parent.length > 0) {
-            linkArea[3].removeChild(linkArea[3].lastChild)
-        }
-    }
     createLink(linkArea);
+    createOutputField();
 }
 
 function createLink(classElem) {
     const link = classElem[0];
     var text = classElem[1].value;
-    var para = classElem[3];
+    var para = [];
+
+    if (link.value == "" || text == "") {
+        return;
+    }
+
     var linkComb = document.createElement("a");
     if (options[1].checked) var bold = document.createElement("b");
     if (options[2].checked) var italic = document.createElement("i");
@@ -36,9 +38,9 @@ function createLink(classElem) {
                 newLink.text = textSplit[i];
                 appendLinks(newLink);
                 if (i < links.length-2 && links.length > 2) {
-                    para.appendChild(document.createTextNode(", "));
+                    para.push(document.createTextNode(", "));
                 } else if (i == links.length-2) {
-                    para.appendChild(document.createTextNode(" and "))
+                    para.push(document.createTextNode(" and "))
                 }
             }
             appendText();
@@ -54,48 +56,56 @@ function createLink(classElem) {
         linkComb.href = link.value;
         appendLinks(linkComb);
     }
+    para.push(document.createElement("br"))
+    ouputParas[classes.indexOf(link.classList[0])] = (para);
+    
     function appendLinks(linkElem){
         if (bold) {
             if (italic) {
                 italic.appendChild(linkElem)
                 bold.appendChild(italic)
             } else bold.appendChild(linkElem);
-            para.appendChild(bold)
+            para.push(bold)
         } else if (italic) {
             italic.appendChild(linkElem);
-            para.appendChild(italic)
+            para.push(italic)
         } else {
-            para.appendChild(linkElem)
+            para.push(linkElem)
         }
     }
     function appendText() {
         var text = classElem[1].value;
-        var para = classElem[3];
         if (options[0].value == "Standard" || options[0].value == "") {
             let textComb = text.split(/^.*?(?= report)|(?= reports)/)[1];
-            para.appendChild(document.createTextNode(textComb))
+            para.push(document.createTextNode(textComb))
         } else if (options[0].value == "Industry") {
             var match = text.match(/( - )(.*)$/);
             textComb = text.slice(0, match.index + 3);
-            para.appendChild(document.createTextNode(textComb))
+            para.push(document.createTextNode(textComb))
         }
     }
 }
 
-
+function createOutputField() {
+    if (outputDiv[0].children.length > 0) {
+        while (outputDiv[0].children.length > 0) {
+            outputDiv[0].removeChild(outputDiv[0].lastChild)
+        }
+    }
+    let filteredParas = ouputParas.filter(x => x !== null);
+    for (let i = 0; i < filteredParas.length; i++) {
+        for (let j = 0; j < filteredParas[i].length; j++) {
+            outputDiv[0].appendChild(filteredParas[i][j])
+        }
+    }
+}
 
 function createAllLinks() {
     for (let i = 0; i < classes.length; i++) {
         const linkArea = document.getElementsByClassName(classes[i]);
-        if (linkArea[3].children.length > 0) {
-            let parent = linkArea[3].childNodes;
-            while (parent.length > 0) {
-                linkArea[3].removeChild(linkArea[3].lastChild)
-            }
-        }
         createLink(linkArea);
     }
-    
+    createOutputField();
 }
 
 function clearAllFields() {

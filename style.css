@@ -51,6 +51,17 @@ body {
     height: 700px;
     border-radius: 5px;
     border: 3px solid darkgray;
+    padding: 10px;
+    font: 400 13.3333px Arial;
+    font-size: 75%;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    letter-spacing: normal;
+    word-spacing: normal;
+    flex-direction: column;
+    cursor: text;
+    overflow-wrap: break-word;
 }
 .outputs {
     display: grid;
@@ -64,22 +75,6 @@ body {
     height:600px;
     width: 600px;
 } */
-.outputBoxes{
-
-
-    padding: 10px;
-    font: 400 13.3333px Arial;
-    font-size: 75%;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    letter-spacing: normal;
-    word-spacing: normal;
-    flex-direction: column;
-    cursor: text;
-    white-space: pre-wrap;
-    overflow-wrap: break-word;
-}
 .text {
     background-color: #DCDCDC;
     color: black;

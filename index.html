@@ -66,11 +66,6 @@
         <div class="row outputs">
             <button id="allReset" class="butts" type="button" onclick="clearAllFields()">Clear all fields</button>
             <div class="output">
-                <p class="firstLink outputBoxes"></p>
-                <p class="secondLink outputBoxes"></p>
-                <p class="thirdLink outputBoxes"></p>
-                <p class="fourthLink outputBoxes"></p>
-                <p class="fifthLink outputBoxes"></p>
             </div>
         </div>
     </div>
@@ -83,7 +78,6 @@
             e.preventDefault();
             let ind = classes.indexOf(e.target.classList[0].toString())
             let clipData = e.clipboardData.getData('Text').split("\n").filter(x => x.length > 0)
-            let classValue = {"linkElems":0,"textElems": 1,};
             for (let i = 0; i < clipData.length && i < classes.length; i++) {
                 document.getElementsByClassName(classes[ind+i])[classValue[e.target.classList[2]]].value = clipData[i];
             }
