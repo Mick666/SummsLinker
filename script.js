@@ -8,12 +8,13 @@ let ouputParas = [null, null, null, null];
 function createLinks(el) {
     const linkArea = document.getElementsByClassName(el.classList[0]);
     createLink(linkArea);
+    console.log(ouputParas)
     createOutputField();
 }
 
 function createLink(classElem) {
     const link = classElem[0];
-    var text = classElem[1].value;
+    var text = classElem[1].value.replace(/\n/, "");
     var para = [];
 
     if (link.value == "" || text == "") {
@@ -74,7 +75,6 @@ function createLink(classElem) {
         }
     }
     function appendText() {
-        var text = classElem[1].value;
         if (options[0].value == "Standard" || options[0].value == "") {
             let textComb = text.split(/^.*?(?= report)|(?= reports)/)[1];
             para.push(document.createTextNode(textComb))
@@ -91,13 +91,16 @@ function createOutputField() {
         while (outputDiv[0].children.length > 0) {
             outputDiv[0].removeChild(outputDiv[0].lastChild)
         }
+        outputDiv[0].innerHTML = ""
     }
+
     let filteredParas = ouputParas.filter(x => x !== null);
     for (let i = 0; i < filteredParas.length; i++) {
         for (let j = 0; j < filteredParas[i].length; j++) {
             outputDiv[0].appendChild(filteredParas[i][j])
         }
     }
+    console.log(outputDiv[0])
 }
 
 function createAllLinks() {
