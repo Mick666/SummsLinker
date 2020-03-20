@@ -36,20 +36,20 @@
         
         <div class="row links">
             <h2 class="text box" id="link">Link</h2>
-            <textarea class="firstLink box" rows="5" cols="30">https://www.google.com/</textarea>
-            <textarea class="secondLink box" rows="5" cols="30"></textarea>
-            <textarea class="thirdLink box" rows="5" cols="30"></textarea>
-            <textarea class="fourthLink box" rows="5" cols="30"></textarea>
-            <textarea class="fifthLink box" rows="5" cols="30"></textarea>
+            <textarea class="firstLink box linkElems" rows="5" cols="30">https://www.google.com/</textarea>
+            <textarea class="secondLink box linkElems" rows="5" cols="30"></textarea>
+            <textarea class="thirdLink box linkElems" rows="5" cols="30"></textarea>
+            <textarea class="fourthLink box linkElems" rows="5" cols="30"></textarea>
+            <textarea class="fifthLink box linkElems" rows="5" cols="30"></textarea>
         </div>
         
         <div class="row text">
             <h2 class="text box" id="text">Text</h2>
-            <textarea class="firstLink box" rows="5" cols="30"></textarea>
-            <textarea class="secondLink box" rows="5" cols="30"></textarea>
-            <textarea class="thirdLink box" rows="5" cols="30"></textarea>
-            <textarea class="fourthLink box" rows="5" cols="30"></textarea>
-            <textarea class="fifthLink box" rows="5" cols="30"></textarea>            
+            <textarea class="firstLink box textElems" rows="5" cols="30"></textarea>
+            <textarea class="secondLink box textElems" rows="5" cols="30"></textarea>
+            <textarea class="thirdLink box textElems" rows="5" cols="30"></textarea>
+            <textarea class="fourthLink box textElems" rows="5" cols="30"></textarea>
+            <textarea class="fifthLink box textElems" rows="5" cols="30"></textarea>            
         </div>  
         
         <div class="row buttons">
@@ -62,22 +62,34 @@
         </div>
         <div class="row outputs">
             <button id="allReset" class="butts" type="button" onclick="clearAllFields()">Clear all fields</button>
-            <span class="ouput">
+            <div class="output">
                 <p class="firstLink outputBoxes"></p>
                 <p class="secondLink outputBoxes"></p>
                 <p class="thirdLink outputBoxes"></p>
                 <p class="fourthLink outputBoxes"></p>
                 <p class="fifthLink outputBoxes"></p>
-            </span>
+            </div>
         </div>
     </div>
 </body>
 <script>
-    /* Need to find way to insert a link into text for javascript.
-    regex to find the outlet name
-    options like the, page number and such.
-    combined option to paste straight into platform
-    reverse summary style option */
+    const LINKELEMS = document.getElementsByClassName("linkElems");
+    const TEXTELEMS = document.getElementsByClassName("textElems");
+    function linkPasting(e) {
+        e.preventDefault();
+        let ind = classes.indexOf(e.target.classList[0].toString())
+        let clipData = e.clipboardData.getData('Text').split("\n").filter(x => x.length > 0)
+        let classValue = {"linkElems":0,"textElems": 1,};
+        for (let i = 0; i < clipData.length && i < classes.length; i++) {
+            document.getElementsByClassName(classes[ind+i])[classValue[e.target.classList[2]]].value = clipData[i];
+        }
+    }
+    for (let i = 0; i < LINKELEMS.length; i++) {
+        LINKELEMS[i].addEventListener("paste", linkPasting)
+    }
+    for (let i = 0; i < TEXTELEMS.length; i++) {
+        TEXTELEMS[i].addEventListener("paste", linkPasting)
+    }
 </script>
 </html>
 
