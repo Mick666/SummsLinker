@@ -1,9 +1,7 @@
 // const classes = {"firstLink":"firstSet", "secondLink":"secondSet", "thirdLink":"thirdSet"}
-let options, classes;
-document.addEventListener("DOMContentLoaded", function(){
-    options = document.getElementsByClassName("options");
-    classes = ["firstLink", "secondLink", "thirdLink", "fourthLink", "fifthLink"];
-});
+let options = document.getElementsByClassName("options");
+let classes = ["firstLink", "secondLink", "thirdLink", "fourthLink", "fifthLink"];
+const outputDiv = document.getElementsByClassName("output")[0];
 
 function createLinks(el) {
     const linkArea = document.getElementsByClassName(el.classList[0]);
