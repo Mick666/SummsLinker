@@ -31,6 +31,9 @@
                 <label class="container">Link 'The'
                     <input type="checkbox" checked="checked" class="options">
                 </label>
+                <label class="container">Enable links pasting over several text boxes <br> (Disable this if you need two links in one summary)
+                    <input type="checkbox" checked="checked" class="options">
+                </label>
             </div>
         </div>
         
@@ -76,12 +79,14 @@
     const LINKELEMS = document.getElementsByClassName("linkElems");
     const TEXTELEMS = document.getElementsByClassName("textElems");
     function linkPasting(e) {
-        e.preventDefault();
-        let ind = classes.indexOf(e.target.classList[0].toString())
-        let clipData = e.clipboardData.getData('Text').split("\n").filter(x => x.length > 0)
-        let classValue = {"linkElems":0,"textElems": 1,};
-        for (let i = 0; i < clipData.length && i < classes.length; i++) {
-            document.getElementsByClassName(classes[ind+i])[classValue[e.target.classList[2]]].value = clipData[i];
+        if (options[4].checked || e.target.classList[2] == "textElems") {
+            e.preventDefault();
+            let ind = classes.indexOf(e.target.classList[0].toString())
+            let clipData = e.clipboardData.getData('Text').split("\n").filter(x => x.length > 0)
+            let classValue = {"linkElems":0,"textElems": 1,};
+            for (let i = 0; i < clipData.length && i < classes.length; i++) {
+                document.getElementsByClassName(classes[ind+i])[classValue[e.target.classList[2]]].value = clipData[i];
+            }
         }
     }
     for (let i = 0; i < LINKELEMS.length; i++) {
