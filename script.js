@@ -23,7 +23,7 @@ function createLink(classElem) {
     var linkComb = document.createElement("a");
     if (options[1].checked) var bold = document.createElement("b");
     if (options[2].checked) var italic = document.createElement("i");
-    if (!options[3].checked && options[0].value == "Standard") {
+    if (!options[3].checked && (options[0].value == "Standard" || options[0].value == "")) {
         text = text.slice(4);
         para.appendChild(document.createTextNode("The "))
     }
