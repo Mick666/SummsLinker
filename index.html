@@ -6,12 +6,7 @@
     <title>Summaries Linker</title>
 </head>
 <body>
-    <!-- here goes the two text fields; class name for the two and Id for indiv
-        Should activate on Enter but also a button to press for same efffec 
-        final creation should have 5 rows
-        Could also push inserted summaries to a google sheet to exchange them
-    -->
-    <div class="wrapper">
+    <div class="wrapper" id="boxesInput">
         <div class="optionButtons row">
             <h2 class="text box" id="options">Options</h2>
             <label class="container menus">Summary style:
@@ -35,9 +30,15 @@
                     <input type="checkbox" checked="checked" class="options">
                 </label>
             </div>
+            <label class="container menus">Input style:
+                <select class="options" id="inputStyle" size="2">
+                    <option value="normal">Many text boxes</option>
+                    <option value="single">Single text box</option>
+                </select>
+            </label>
         </div>
         
-        <div class="row links">
+        <div class="row links" id="linkTextBoxes">
             <h2 class="text box" id="link">Link</h2>
             <textarea class="firstLink box linkElems" rows="5" cols="30">https://www.google.com/</textarea>
             <textarea class="secondLink box linkElems" rows="5" cols="30"></textarea>
@@ -46,7 +47,7 @@
             <textarea class="fifthLink box linkElems" rows="5" cols="30"></textarea>
         </div>
         
-        <div class="row text">
+        <div class="row text" id ="textTextBoxes">
             <h2 class="text box" id="text">Text</h2>
             <textarea class="firstLink box textElems" rows="5" cols="30">The Australian Financial Review reports the federal government   has banned all non-essential gatherings of 100 or more people indoors and Prime Minister Scott Morrison and Chief Medical Officer Brendan Murphy said the measures could be in place for at least six months. Mr Morrison said that the measures taken must be “sustainable” so the country can function during the lockdown.</textarea>
             <textarea class="secondLink box textElems" rows="5" cols="30"></textarea>
@@ -57,11 +58,11 @@
         
         <div class="row buttons">
             <button id="allButt" class="butts topButts" type="button" onclick="createAllLinks()">Link all</button>
-            <button id="firstButton" class="firstLink butts" type="button" onclick="createLinks(this)">>></button>
-            <button class="secondLink butts" type="button" onclick="createLinks(this)">>></button>
-            <button class="thirdLink butts" type="button" onclick="createLinks(this)">>></button>
-            <button class="fourthLink butts" type="button" onclick="createLinks(this)">>></button>
-            <button class="fifthLink butts" type="button" onclick="createLinks(this)">>></button>
+            <button class="firstLink indivLinkButt butts" type="button" onclick="createLinks(this)">>></button>
+            <button class="secondLink indivLinkButt butts" type="button" onclick="createLinks(this)">>></button>
+            <button class="thirdLink indivLinkButt butts" type="button" onclick="createLinks(this)">>></button>
+            <button class="fourthLink indivLinkButt butts" type="button" onclick="createLinks(this)">>></button>
+            <button class="fifthLink indivLinkButt butts" type="button" onclick="createLinks(this)">>></button>
         </div>
         <div class="row outputs">
             <div>
@@ -71,29 +72,26 @@
             <div class="output">
             </div>
         </div>
+        <div class="row hidden" id="singleInput">
+            <h2 class="text box" id="text">Text & Links</h2>
+            <textarea class="box textElems" placeholder="" id="singularTextBox" rows="25" cols="60"></textarea>
+        </div>
     </div>
 </body>
 <script>
     const LINKELEMS = document.getElementsByClassName("linkElems");
     const TEXTELEMS = document.getElementsByClassName("textElems");
-    function linkPasting(e) {
-        if (options[4].checked || e.target.classList[2] == "textElems") {
-            e.preventDefault();
-            let ind = classes.indexOf(e.target.classList[0].toString())
-            let clipData = e.clipboardData.getData('Text').split("\n").filter(x => x.length > 0)
-            for (let i = 0; i < clipData.length && i < classes.length; i++) {
-                document.getElementsByClassName(classes[ind+i])[classValue[e.target.classList[2]]].value = clipData[i];
-            }
-        }
-    }
     for (let i = 0; i < LINKELEMS.length; i++) {
         LINKELEMS[i].addEventListener("paste", linkPasting)
     }
     for (let i = 0; i < TEXTELEMS.length; i++) {
         TEXTELEMS[i].addEventListener("paste", linkPasting)
     }
+    
+    document.getElementById("singleInput").addEventListener("click", changeInputStyle);
+    document.getElementById("boxesInput").addEventListener("click", changeInputStyle);
+    document.getElementById("singularTextBox").placeholder ="The first link will be added to the first summary and so on. \nMake sure all links & summaries are on separate lines."
 </script>
 </html>
 
-<!--  -->
-    
+
