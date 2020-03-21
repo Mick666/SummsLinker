@@ -36,15 +36,16 @@ body {
     justify-content: center;
     align-items: center;
 }
+.topButts{
+    font-size: 75%;
+    width: 100px;
+}
 #allButt{
     margin: auto;
-    font-size: 75%;
     width: 75px;
 }
 #allReset {
     position: relative;
-    width: 100px;
-    font-size: 75%;
 }
 .output {
     background-color: #444;

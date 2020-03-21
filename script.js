@@ -4,11 +4,12 @@ let classes = ["firstLink", "secondLink", "thirdLink", "fourthLink", "fifthLink"
 let classValue = {"linkElems":0,"textElems": 1,};
 const outputDiv = document.getElementsByClassName("output");
 let ouputParas = [null, null, null, null];
+let linkData = [];
+let textData = [];
 
 function createLinks(el) {
     const linkArea = document.getElementsByClassName(el.classList[0]);
     createLink(linkArea);
-    console.log(ouputParas)
     createOutputField();
 }
 
@@ -29,6 +30,10 @@ function createLink(classElem) {
         para.appendChild(document.createTextNode("The "))
     }
     if (options[0].value == "Standard" || options[0].value == "") {
+        if (text.match(/^.*?(?= report)|(?= reports)/) == null) {
+            alert("No match for the current input. Have you selected the correct summary style?")
+            return;
+        }
         let textMatch = text.match(/^.*?(?= report)|(?= reports)/)[0];
         let textSplit = textMatch.split(/ and |, /);
         if (textSplit.length > 1) {
@@ -114,11 +119,19 @@ function createAllLinks() {
 function clearAllFields() {
     for (let i = 0; i < classes.length; i++) {
         const linkArea = document.getElementsByClassName(classes[i]);
-        for (let i = 0; i < linkArea.length; i++) {
-            if (i == 2) continue;
-            linkArea[i].innerHTML = ""
-            if (linkArea[i].type == "textarea") linkArea[i].value = ""
-        }
+        linkData[i] = linkArea[0].value;
+        linkArea[0].value = "";
+        textData[i] = linkArea[1].value;
+        linkArea[1].value = ""
     }
-    
+    outputDiv[0].innerHTML = "";
+}
+
+function undoReset(){
+    for (let i = 0; i < classes.length; i++) {
+        const linkArea = document.getElementsByClassName(classes[i]);
+        linkArea[0].value = linkData[i] || ""
+        linkArea[1].value  = textData[i]  || ""
+    }
+    createOutputField();
 }

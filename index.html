@@ -14,7 +14,7 @@
     <div class="wrapper">
         <div class="optionButtons row">
             <h2 class="text box" id="options">Options</h2>
-            <label class="container menus">
+            <label class="container menus">Summary style:
                 <select class="options" id="summaries" size="3">
                     <option value="Standard">Standard summary</option>
                     <option value="Industry">Industry style summary</option>
@@ -56,7 +56,7 @@
         </div>  
         
         <div class="row buttons">
-            <button id="allButt" class="butts" type="button" onclick="createAllLinks()">Link all</button>
+            <button id="allButt" class="butts topButts" type="button" onclick="createAllLinks()">Link all</button>
             <button id="firstButton" class="firstLink butts" type="button" onclick="createLinks(this)">>></button>
             <button class="secondLink butts" type="button" onclick="createLinks(this)">>></button>
             <button class="thirdLink butts" type="button" onclick="createLinks(this)">>></button>
@@ -64,7 +64,10 @@
             <button class="fifthLink butts" type="button" onclick="createLinks(this)">>></button>
         </div>
         <div class="row outputs">
-            <button id="allReset" class="butts" type="button" onclick="clearAllFields()">Clear all fields</button>
+            <div>
+                <button id="allReset" class="butts topButts" type="button" onclick="clearAllFields()">Clear all fields</button>
+                <button id="undo" class="butts topButts" type="button" onclick="undoReset()">Undo clear</button>
+            </div>
             <div class="output">
             </div>
         </div>
