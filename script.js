@@ -169,7 +169,7 @@ function createLinksSingleField() {
     console.log(strippedInput);
     let links = strippedInput.filter(x => x.startsWith("http"));
     let summs = strippedInput.filter(x => !x.startsWith("http"));
-    conso
+    console.log(links);
     let combinedParas = [];
     for (let i = 0, j = 0; i < summs.length && j < links.length; i++, j++) {
         let text = summs[i].replace(/\n/g, "");
@@ -206,8 +206,10 @@ function createLinksSingleField() {
                     j++
                 }
             } else {
+                console.log(links[j])
                 link.text = textMatch;
-                link.href = link.value;
+                link.href = links[j];
+                console.log(link);
                 appendLinks(link, para, bold, italic);
             }
             appendText(text, para)
