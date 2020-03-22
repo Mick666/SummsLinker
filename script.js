@@ -92,9 +92,8 @@ function createAllLinks() {
             createLink(linkArea);
         }
         createOutputField(outputParas);
-    } else if (options[5].value == "single") {
+    } else if (options[5].value == "single" || options[5].value == "") {
         outputField = createLinksSingleField();
-        console.log(outputField)
         createOutputField(outputField);
     }
     
@@ -166,10 +165,8 @@ function createLinksSingleField() {
     let strippedInput = document.getElementById("singularTextBox").value
     .split("\n")
     .filter(x => x.replace(/\n| /, "").length > 0);
-    console.log(strippedInput);
     let links = strippedInput.filter(x => x.startsWith("http"));
     let summs = strippedInput.filter(x => !x.startsWith("http"));
-    console.log(links);
     let combinedParas = [];
     for (let i = 0, j = 0; i < summs.length && j < links.length; i++, j++) {
         let text = summs[i].replace(/\n/g, "");
@@ -206,10 +203,8 @@ function createLinksSingleField() {
                     j++
                 }
             } else {
-                console.log(links[j])
                 link.text = textMatch;
                 link.href = links[j];
-                console.log(link);
                 appendLinks(link, para, bold, italic);
             }
             appendText(text, para)
@@ -225,7 +220,6 @@ function createLinksSingleField() {
         }
         
     }
-    console.log(combinedParas)
     return combinedParas;
 }
 
