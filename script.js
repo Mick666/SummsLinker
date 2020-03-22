@@ -6,6 +6,8 @@ const outputDiv = document.getElementsByClassName("output");
 let outputParas = [null, null, null, null];
 let linkData = [];
 let textData = [];
+let singleTextBoxData = "";
+let outputField = [];
 
 function createLinks(el) {
     const linkArea = document.getElementsByClassName(el.classList[0]);
@@ -25,7 +27,7 @@ function createLink(classElem) {
     else bold == null;
     if (options[2].checked) var italic = document.createElement("i");
     else italic == null;
-
+    
     if (options[0].value == "Standard" || options[0].value == "") {
         if (!options[3].checked && text.startsWith("The")) {
             text = text.slice(4);
@@ -91,30 +93,42 @@ function createAllLinks() {
         }
         createOutputField(outputParas);
     } else if (options[5].value == "single") {
-        let outputField = createLinksSingleField();
+        outputField = createLinksSingleField();
+        console.log(outputField)
         createOutputField(outputField);
     }
     
 }
 
 function clearAllFields() {
-    for (let i = 0; i < classes.length; i++) {
-        const linkArea = document.getElementsByClassName(classes[i]);
-        linkData[i] = linkArea[0].value;
-        linkArea[0].value = "";
-        textData[i] = linkArea[1].value;
-        linkArea[1].value = ""
+    if (options[5].value == "normal") {
+        for (let i = 0; i < classes.length; i++) {
+            const linkArea = document.getElementsByClassName(classes[i]);
+            linkData[i] = linkArea[0].value;
+            linkArea[0].value = "";
+            textData[i] = linkArea[1].value;
+            linkArea[1].value = ""
+        } 
+    } else if (options[5].value == "single") {
+        singleTextBoxData = document.getElementById("singularTextBox").value;
+        document.getElementById("singularTextBox").value = ""
     }
     outputDiv[0].innerHTML = "";
 }
 
 function undoReset(){
-    for (let i = 0; i < classes.length; i++) {
-        const linkArea = document.getElementsByClassName(classes[i]);
-        linkArea[0].value = linkData[i] || ""
-        linkArea[1].value  = textData[i]  || ""
+    if (options[5].value == "normal") {
+        for (let i = 0; i < classes.length; i++) {
+            const linkArea = document.getElementsByClassName(classes[i]);
+            linkArea[0].value = linkData[i] || ""
+            linkArea[1].value  = textData[i]  || ""
+        }
+        createOutputField(outputParas);
+    } else if (options[5].value == "single") {
+        document.getElementById("singularTextBox").value = singleTextBoxData
+        createOutputField(outputField);
     }
-    createOutputField();
+    
 }
 
 function linkPasting(e) {
@@ -152,8 +166,10 @@ function createLinksSingleField() {
     let strippedInput = document.getElementById("singularTextBox").value
     .split("\n")
     .filter(x => x.replace(/\n| /, "").length > 0);
+    console.log(strippedInput);
     let links = strippedInput.filter(x => x.startsWith("http"));
     let summs = strippedInput.filter(x => !x.startsWith("http"));
+    conso
     let combinedParas = [];
     for (let i = 0, j = 0; i < summs.length && j < links.length; i++, j++) {
         let text = summs[i].replace(/\n/g, "");
@@ -207,6 +223,7 @@ function createLinksSingleField() {
         }
         
     }
+    console.log(combinedParas)
     return combinedParas;
 }
 

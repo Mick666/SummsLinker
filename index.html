@@ -38,18 +38,18 @@
             </label>
         </div>
         
-        <div class="row links" id="linkTextBoxes">
+        <div class="row links hidden" id="linkTextBoxes">
             <h2 class="text box" id="link">Link</h2>
-            <textarea class="firstLink box linkElems" rows="5" cols="30">https://www.google.com/</textarea>
+            <textarea class="firstLink box linkElems" rows="5" cols="30"></textarea>
             <textarea class="secondLink box linkElems" rows="5" cols="30"></textarea>
             <textarea class="thirdLink box linkElems" rows="5" cols="30"></textarea>
             <textarea class="fourthLink box linkElems" rows="5" cols="30"></textarea>
             <textarea class="fifthLink box linkElems" rows="5" cols="30"></textarea>
         </div>
         
-        <div class="row text" id ="textTextBoxes">
+        <div class="row text hidden" id ="textTextBoxes">
             <h2 class="text box" id="text">Text</h2>
-            <textarea class="firstLink box textElems" rows="5" cols="30">The Australian Financial Review reports the federal government   has banned all non-essential gatherings of 100 or more people indoors and Prime Minister Scott Morrison and Chief Medical Officer Brendan Murphy said the measures could be in place for at least six months. Mr Morrison said that the measures taken must be “sustainable” so the country can function during the lockdown.</textarea>
+            <textarea class="firstLink box textElems" rows="5" cols="30"></textarea>
             <textarea class="secondLink box textElems" rows="5" cols="30"></textarea>
             <textarea class="thirdLink box textElems" rows="5" cols="30"></textarea>
             <textarea class="fourthLink box textElems" rows="5" cols="30"></textarea>
@@ -72,7 +72,7 @@
             <div class="output">
             </div>
         </div>
-        <div class="row hidden" id="singleInput">
+        <div class="row visibleBox" id="singleInput">
             <h2 class="text box" id="text">Text & Links</h2>
             <textarea class="box textElems" placeholder="" id="singularTextBox" rows="25" cols="60"></textarea>
         </div>
@@ -90,7 +90,8 @@
     
     document.getElementById("singleInput").addEventListener("click", changeInputStyle);
     document.getElementById("boxesInput").addEventListener("click", changeInputStyle);
-    document.getElementById("singularTextBox").placeholder ="The first link will be added to the first summary and so on. \nMake sure all links & summaries are on separate lines."
+    document.getElementById("singularTextBox").placeholder ="Insert all your summaries and the associated links into this text box, then hit Create All Links to link them. \nThe placement of the link doesn't matter (i.e., it doesn't matter if they're all at the top of the bottom, or so on."
+    document.getElementById("singularTextBox").placeholder +="\nThe first link will be added to the first summary and so on. \nMake sure all links & summaries are on separate lines."
 </script>
 </html>
 

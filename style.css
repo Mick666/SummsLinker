@@ -92,3 +92,6 @@ a {
     grid-row: 1;
     grid-column: 2 / 4;
 }
+.indivLinkButt{
+    display: none;
+}
