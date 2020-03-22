@@ -124,7 +124,7 @@ function undoReset(){
             linkArea[1].value  = textData[i]  || ""
         }
         createOutputField(outputParas);
-    } else if (options[5].value == "single") {
+    } else if (options[5].value == "single" || options[5].value == "") {
         document.getElementById("singularTextBox").value = singleTextBoxData
         createOutputField(outputField);
     }
