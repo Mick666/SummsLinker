@@ -147,6 +147,7 @@ function changeInputStyle(){
         document.getElementById("linkTextBoxes").className = "row links"
         document.getElementById("textTextBoxes").className = "row text"
         document.getElementById("singleInput").className = "row hidden"
+        document.getElementById("linkOverflowOption").style.display = "block"
         for (let i = 0; i < butts.length; i++) {
             butts[i].style.display = "block";
         }
@@ -155,6 +156,7 @@ function changeInputStyle(){
         document.getElementById("linkTextBoxes").className = "row links hidden"
         document.getElementById("textTextBoxes").className = "row text hidden"
         document.getElementById("singleInput").className = "row visibleBox"
+        document.getElementById("linkOverflowOption").style.display = "none"
         for (let i = 0; i < butts.length; i++) {
             butts[i].style.display = "none";
         }
