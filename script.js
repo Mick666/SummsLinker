@@ -216,7 +216,7 @@ function createLinksSingleField() {
         } else if (options[0].value == "Industry") {
             appendText(text, para);
             link.text = text.match(/( - )(.*)$/)[2];
-            link.href = link[j]
+            link.href = links[j]
             appendLinks(link, para, bold, italic);
             para.push(document.createElement("br"))
             combinedParas.push(para)
