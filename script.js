@@ -168,7 +168,7 @@ function createLinksSingleField() {
     .split("\n")
     .filter(x => x.replace(/\n| /, "").length > 0);
     let links = strippedInput.filter(x => x.startsWith("http"));
-    let summs = strippedInput.filter(x => !x.startsWith("http"));
+    let summs = strippedInput.filter(x => !x.startsWith("http") && x.length > 10);
     let combinedParas = [];
     for (let i = 0, j = 0; i < summs.length && j < links.length; i++, j++) {
         let text = summs[i].replace(/\n/g, "");
@@ -186,8 +186,7 @@ function createLinksSingleField() {
             }
             
             if (text.match(/^.*?(?= report)|(?= reports)/) == null) {
-                alert("No match for the current input. Have you selected the correct summary style?")
-                return;
+                continue;
             }
             let textMatch = text.match(/^.*?(?= report)|(?= reports)/)[0];
             let textSplit = textMatch.split(/ and |, /);
@@ -220,7 +219,6 @@ function createLinksSingleField() {
             para.push(document.createElement("br"))
             combinedParas.push(para)
         }
-        
     }
     return combinedParas;
 }
@@ -230,10 +228,11 @@ function appendLinks(link, para, bold, italic){
         if (italic) {
             italic.appendChild(link)
             bold.appendChild(italic)
-        } else bold.appendChild(link);
+        } else {bold.appendChild(link)};
         para.push(bold)
     } else if (italic) {
         italic.appendChild(link);
+        console.log(italic)
         para.push(italic)
     } else {
         para.push(link)
