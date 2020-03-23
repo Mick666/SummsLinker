@@ -170,21 +170,20 @@ function createLinksSingleField() {
     let links = strippedInput.filter(x => x.startsWith("http"));
     let summs = strippedInput.filter(x => !x.startsWith("http") && x.length > 10);
     let combinedParas = [];
+
     for (let i = 0, j = 0; i < summs.length && j < links.length; i++, j++) {
         let text = summs[i].replace(/\n/g, "");
         let para = [];
         let link = document.createElement("a");
         if (options[1].checked) var bold = document.createElement("b");
-        else bold == null;
         if (options[2].checked) var italic = document.createElement("i");
-        else italic == null;
-        
+                
         if (options[0].value == "Standard" || options[0].value == ""){
             if (!options[3].checked && text.startsWith("The")) {
                 text = text.slice(4);
                 para.push(document.createTextNode("The "))
             }
-            
+
             if (text.match(/^.*?(?= report)|(?= reports)/) == null) {
                 continue;
             }
@@ -195,6 +194,8 @@ function createLinksSingleField() {
                     let newLink = document.createElement("a");
                     newLink.href = links[j];
                     newLink.text = textSplit[x];
+                    if (bold) bold = document.createElement("b")
+                    if (italic) italic = document.createElement("i")
                     appendLinks(newLink, para, bold, italic);
                     if (x < textSplit.length-2 && textSplit.length > 2) {
                         para.push(document.createTextNode(", "));
@@ -232,7 +233,6 @@ function appendLinks(link, para, bold, italic){
         para.push(bold)
     } else if (italic) {
         italic.appendChild(link);
-        console.log(italic)
         para.push(italic)
     } else {
         para.push(link)
