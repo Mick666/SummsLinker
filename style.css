@@ -77,10 +77,6 @@ body {
     align-items: center;
     color: white;
 }
-/* #output2{
-    height:600px;
-    width: 600px;
-} */
 .text {
     background-color: #DCDCDC;
     color: black;
@@ -91,10 +87,41 @@ a {
 .visibleBox{
     grid-row: 1;
     grid-column: 2 / 4;
+    grid-template-rows: 95px auto;
 }
 .indivLinkButt{
     display: none;
 }
 #linkOverflowOption{
     display: none;
+}
+/* .optionButtons{
+    padding-left: 5px;
+}
+*/
+.optionsSubDiv {
+    grid-row: 2;
+    display: inline-grid;
+    /* grid-template-columns: auto;
+    grid-template-rows: auto auto auto auto; */
+    border: ridge 2px grey;
+    padding-left: 5px;
+} /*
+.checkbox{
+    display: inline-block;
+}
+*/
+#options {
+    padding: 0px;
+}
+#textandlinks {
+    padding-bottom: 0px;
+    padding-left: 0px;
+} 
+#inputStyle{
+    display: grid;
+    padding-left: 0px;
+}
+#summaries {
+    padding-left: 0px;
 }

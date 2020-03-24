@@ -142,6 +142,7 @@ function linkPasting(e) {
 }
 
 function changeInputStyle(){
+    console.log(options[5].value)
     let butts = document.getElementsByClassName("indivLinkButt");
     if (options[5].value == "normal") {
         document.getElementById("linkTextBoxes").className = "row links"

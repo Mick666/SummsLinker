@@ -7,35 +7,37 @@
 </head>
 <body>
     <div class="wrapper" id="boxesInput">
-        <div class="optionButtons row">
-            <h2 class="text box" id="options">Options</h2>
-            <label class="container menus">Summary style:
-                <select class="options" id="summaries" size="2">
-                    <option value="Standard">Standard summary</option>
-                    <option value="Industry">Industry/Coles style summary</option>
-                    <!-- <option value="Coles">Coles style summary</option> -->
-                </select>
-            </label>
-            <div class='row'>
-                <label class="container">Bold
-                    <input class="options" type="checkbox">
+        <div class="optionsDiv row">
+            <div class="optionsSubDiv">
+                <h4 class="text box" id="options">Options</h4>
+                <label class="container menus">Summary style:
+                    <select class="options" id="summaries" size="2">
+                        <option value="Standard">Standard summary</option>
+                        <option value="Industry">Industry/Coles style summary</option>
+                        <!-- <option value="Coles">Coles style summary</option> -->
+                    </select>
                 </label>
-                <label class="container">Italic
-                    <input type="checkbox" class="options">
-                </label>
-                <label class="container">Link 'The'
-                    <input type="checkbox" checked="checked" class="options">
-                </label>
-                <label class="container" id="linkOverflowOption">Enable links pasting over several text boxes <br> (Disable this if you need two links in one summary)
-                    <input type="checkbox" checked="checked" class="options">
+                <div class='row'>
+                    <label class="container">Bold
+                        <input class="options" type="checkbox">
+                    </label>
+                    <label class="container">Italic
+                        <input type="checkbox" class="options">
+                    </label>
+                    <label class="container">Link 'The'
+                        <input type="checkbox" checked="checked" class="options">
+                    </label>
+                    <label class="container" id="linkOverflowOption">Enable links pasting over several text boxes <br> (Disable this if you need two links in one summary)
+                        <input type="checkbox" checked="checked" class="options">
+                    </label>
+                </div>
+                <label class="container menus">Input style:
+                    <select class="options" id="inputStyle" size="2">
+                        <option value="normal">Many text boxes</option>
+                        <option value="single">Single text box</option>
+                    </select>
                 </label>
             </div>
-            <label class="container menus">Input style:
-                <select class="options" id="inputStyle" size="2">
-                    <option value="normal">Many text boxes</option>
-                    <option value="single">Single text box</option>
-                </select>
-            </label>
         </div>
         
         <div class="row links hidden" id="linkTextBoxes">
@@ -57,7 +59,6 @@
         </div>  
         
         <div class="row buttons">
-            <button id="allButt" class="butts topButts" type="button" onclick="createAllLinks()">Link all</button>
             <button class="firstLink indivLinkButt butts" type="button" onclick="createLinks(this)">>></button>
             <button class="secondLink indivLinkButt butts" type="button" onclick="createLinks(this)">>></button>
             <button class="thirdLink indivLinkButt butts" type="button" onclick="createLinks(this)">>></button>
@@ -66,6 +67,7 @@
         </div>
         <div class="row outputs">
             <div>
+                <button id="allButt" class="butts topButts" type="button" onclick="createAllLinks()">Link all</button>
                 <button id="allReset" class="butts topButts" type="button" onclick="clearAllFields()">Clear all fields</button>
                 <button id="undo" class="butts topButts" type="button" onclick="undoReset()">Undo clear</button>
             </div>
@@ -73,7 +75,7 @@
             </div>
         </div>
         <div class="row visibleBox" id="singleInput">
-            <h2 class="text box" id="text">Text & Links</h2>
+            <h3 class="text box" id="textandlinks">Text & Links</h3>
             <textarea class="box textElems" placeholder="" id="singularTextBox" rows="25" cols="60"></textarea>
         </div>
     </div>
