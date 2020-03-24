@@ -101,15 +101,9 @@ a {
 .optionsSubDiv {
     grid-row: 2;
     display: inline-grid;
-    /* grid-template-columns: auto;
-    grid-template-rows: auto auto auto auto; */
     border: ridge 2px grey;
     padding-left: 5px;
-} /*
-.checkbox{
-    display: inline-block;
 }
-*/
 #options {
     padding: 0px;
 }
@@ -123,4 +117,10 @@ a {
 }
 #summaries {
     padding-left: 0px;
+}
+.instructions{
+    grid-row: 3;
+}
+#spacing{
+    padding: 7px;
 }
