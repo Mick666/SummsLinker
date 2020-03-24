@@ -167,13 +167,13 @@ function changeInputStyle(){
 function createLinksSingleField() {
     let strippedInput = document.getElementById("singularTextBox").value
     .split("\n")
-    .filter(x => x.replace(/\n| /, "").length > 0);
+    .filter(x => x.replace(/\n| /g, "").length > 0);
     let links = strippedInput.filter(x => x.startsWith("http"));
     let summs = strippedInput.filter(x => !x.startsWith("http") && x.length > 10);
     let combinedParas = [];
 
     for (let i = 0, j = 0; i < summs.length && j < links.length; i++) {
-        let text = summs[i].replace(/\n/g, "");
+        let text = summs[i].replace(/\n/g, "").replace(/–/g, "-");
         let para = [];
         let link = document.createElement("a");
         if (options[1].checked) var bold = document.createElement("b");
