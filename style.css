@@ -73,7 +73,6 @@ body {
     display: grid;
     grid-template-columns: 600px;
     grid-template-rows: 135px 650px;
-    justify-content: center;
     align-items: center;
     color: white;
 }
