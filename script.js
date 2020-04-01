@@ -17,7 +17,7 @@ function createLinks(el) {
 
 function createLink(classElem) {
     const link = classElem[0];
-    var text = classElem[1].value.replace(/\n/, "");
+    var text = classElem[1].value.replace(/\n/, "").replace(/–/g, "-");
     var para = [];
     if (link.value == "" || text == "") {
         return;
@@ -63,7 +63,28 @@ function createLink(classElem) {
         appendText(text, para);;
         linkComb.text = text.match(/( - )(.*)$/)[2];
         linkComb.href = link.value;
-        appendLinks(newLink, para, bold, italic);
+        appendLinks(linkComb, para, bold, italic);
+    } else if (options[0].value == "Coles") {
+        let textMatch = text.match(/( - )(.*)$/)[2];
+        let textSplit = textMatch.split(/ and |, /);
+        appendText(text, para);
+        if (textSplit.length > 1) {
+            let links = link.value.split("\n");
+            let separators = textMatch.match(/,(?:[^,])| and /g);
+            for (let i = 0; i < links.length; i++) {
+                let newLink = document.createElement("a");
+                if (links[i]) newLink.href = links[i];
+                newLink.text = textSplit[i];
+                if (bold) bold = document.createElement("b")
+                if (italic) italic = document.createElement("i")
+                appendLinks(newLink, para, bold, italic);
+                if (separators[i]) para.push(document.createTextNode(separators[i]))
+            }
+        } else {
+            linkComb.text = text.match(/( - )(.*)$/)[2];
+            linkComb.href = link.value;
+            appendLinks(linkComb, para, bold, italic);
+        }
     }
     para.push(document.createElement("br"))
     outputParas[classes.indexOf(link.classList[0])] = (para);
@@ -173,7 +194,7 @@ function createLinksSingleField() {
     let summs = strippedInput.filter(x => !x.startsWith("http") && x.length > 10);
     console.log(summs)
     let combinedParas = [];
-
+    
     for (let i = 0, j = 0; i < summs.length && j < links.length; i++) {
         let text = summs[i].replace(/\n/g, "").replace(/–/g, "-");
         console.log(text)
@@ -181,13 +202,13 @@ function createLinksSingleField() {
         let link = document.createElement("a");
         if (options[1].checked) var bold = document.createElement("b");
         if (options[2].checked) var italic = document.createElement("i");
-
+        
         if (options[0].value == "Standard" || options[0].value == ""){
             if (!options[3].checked && text.startsWith("The")) {
                 text = text.slice(4);
                 para.push(document.createTextNode("The "))
             }
-
+            
             if (text.match(/^.*?(?= report)|(?= reports)/) == null) {
                 continue;
             }
