@@ -129,7 +129,7 @@ function clearAllFields() {
             textData[i] = linkArea[1].value;
             linkArea[1].value = ""
         } 
-    } else if (options[5].value == "single") {
+    } else if (options[5].value == "single" || options[5].value == "") {
         singleTextBoxData = document.getElementById("singularTextBox").value;
         document.getElementById("singularTextBox").value = ""
     }

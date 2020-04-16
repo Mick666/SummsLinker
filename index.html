@@ -79,7 +79,7 @@
         </div>
         <div class="row visibleBox" id="singleInput">
             <h3 class="text box" id="textandlinks">Text & Links</h3>
-            <textarea class="box textElems" placeholder="" id="singularTextBox" rows="25" cols="60"></textarea>
+            <textarea class="box textElems" id="singularTextBox" rows="25" cols="60"></textarea>
         </div>
     </div>
 </body>
@@ -94,7 +94,6 @@
     }
     
     document.getElementById("inputStyle").addEventListener("click", changeInputStyle);
-    // document.getElementById("boxesInput").addEventListener("click", changeInputStyle);
     document.getElementById("singularTextBox").placeholder ="Make sure all links & summaries are on separate lines.\nInsert all your summaries and the associated links into this text box"
     document.getElementById("singularTextBox").placeholder +=", then hit Create All Links to link them. \nThe placement of the links doesn't matter (i.e., it doesn't matter if they're all at the top or the bottom, or so on."
     document.getElementById("singularTextBox").placeholder +="\nThe first link will be added to the first summary and so on."
