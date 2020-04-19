@@ -6,6 +6,7 @@
     <title>Summaries Linker</title>
 </head>
 <body>
+    <h2>Summaries Linker</h1>
     <div class="wrapper" id="boxesInput">
         <div class="optionsDiv row">
             <div id="spacing"></div>
@@ -32,41 +33,11 @@
                         <input type="checkbox" checked="checked" class="options">
                     </label>
                 </div>
-                <label class="container menus">Input style:
-                    <select class="options" id="inputStyle" size="2">
-                        <option value="single">Single text box</option>
-                        <option value="normal">Many text boxes</option>
-                    </select>
-                </label>
             </div>
             
         </div>
         
-        <div class="row links hidden" id="linkTextBoxes">
-            <h2 class="text box" id="link">Link</h2>
-            <textarea class="firstLink box linkElems" rows="5" cols="30"></textarea>
-            <textarea class="secondLink box linkElems" rows="5" cols="30"></textarea>
-            <textarea class="thirdLink box linkElems" rows="5" cols="30"></textarea>
-            <textarea class="fourthLink box linkElems" rows="5" cols="30"></textarea>
-            <textarea class="fifthLink box linkElems" rows="5" cols="30"></textarea>
-        </div>
-        
-        <div class="row text hidden" id ="textTextBoxes">
-            <h2 class="text box" id="text">Text</h2>
-            <textarea class="firstLink box textElems" rows="5" cols="30"></textarea>
-            <textarea class="secondLink box textElems" rows="5" cols="30"></textarea>
-            <textarea class="thirdLink box textElems" rows="5" cols="30"></textarea>
-            <textarea class="fourthLink box textElems" rows="5" cols="30"></textarea>
-            <textarea class="fifthLink box textElems" rows="5" cols="30"></textarea>            
-        </div>  
-        
         <div class="row buttons">
-            <p></p>
-            <button class="firstLink indivLinkButt butts" type="button" onclick="createLinks(this)">>></button>
-            <button class="secondLink indivLinkButt butts" type="button" onclick="createLinks(this)">>></button>
-            <button class="thirdLink indivLinkButt butts" type="button" onclick="createLinks(this)">>></button>
-            <button class="fourthLink indivLinkButt butts" type="button" onclick="createLinks(this)">>></button>
-            <button class="fifthLink indivLinkButt butts" type="button" onclick="createLinks(this)">>></button>
         </div>
         <div class="row outputs">
             <div>
@@ -83,17 +54,7 @@
         </div>
     </div>
 </body>
-<script>
-    const LINKELEMS = document.getElementsByClassName("linkElems");
-    const TEXTELEMS = document.getElementsByClassName("textElems");
-    for (let i = 0; i < LINKELEMS.length; i++) {
-        LINKELEMS[i].addEventListener("paste", linkPasting)
-    }
-    for (let i = 0; i < TEXTELEMS.length; i++) {
-        TEXTELEMS[i].addEventListener("paste", linkPasting)
-    }
-    
-    document.getElementById("inputStyle").addEventListener("click", changeInputStyle);
+<script>   
     document.getElementById("singularTextBox").placeholder ="Make sure all links & summaries are on separate lines.\nInsert all your summaries and the associated links into this text box"
     document.getElementById("singularTextBox").placeholder +=", then hit Create All Links to link them. \nThe placement of the links doesn't matter (i.e., it doesn't matter if they're all at the top or the bottom, or so on."
     document.getElementById("singularTextBox").placeholder +="\nThe first link will be added to the first summary and so on."
