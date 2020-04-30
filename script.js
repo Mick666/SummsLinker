@@ -50,12 +50,10 @@ function createLinksSingleField() {
     
     let links = strippedInput.filter(x => x.startsWith("http"));
     let summs = strippedInput.filter(x => !x.startsWith("http") && x.length > 10);
-    console.log(summs)
     let combinedParas = [];
     
     for (let i = 0, j = 0; i < summs.length && j < links.length; i++) {
-        let text = summs[i].replace(/\n/g, "").replace(/–/g, "-");
-        console.log(text)
+        let text = summs[i].replace(/–/g, "-");
         let para = [];
         let link = document.createElement("a");
         if (options[1].checked) var bold = document.createElement("b");
@@ -81,7 +79,10 @@ function createLinksSingleField() {
                     if (bold) bold = document.createElement("b")
                     if (italic) italic = document.createElement("i")
                     appendLinks(newLink, para, bold, italic);
-                    if (separators[x]) para.push(document.createTextNode(separators[x]))
+                    if (separators[x]) {
+                        if (options[4].checked) separators[x] = separators[x].trim();
+                        para.push(document.createTextNode(separators[x]))
+                    }
                 }
             } else {
                 link.text = textMatch;
@@ -113,10 +114,13 @@ function createLinksSingleField() {
                     if (bold) bold = document.createElement("b")
                     if (italic) italic = document.createElement("i")
                     appendLinks(newLink, para, bold, italic);
-                    if (separators[x]) para.push(document.createTextNode(separators[x]))
+                    if (separators[x]) {
+                        console.log(separators[x])
+                        if (options[4].checked) separators[x] = separators[x].trim();
+                        para.push(document.createTextNode(separators[x]))
+                    }
                 }
             } else {
-                console.log("test")
                 link.text = textMatch;
                 link.href = links[j];
                 appendLinks(link, para, bold, italic);
@@ -147,10 +151,12 @@ function appendLinks(link, para, bold, italic){
 function appendText(text, para) {
     if (options[0].value == "Standard" || options[0].value == "") {
         let textComb = text.split(/^.*?(?= report)|(?= reports)/)[1];
+        if (options[4].checked) textComb = textComb.trim();
         para.push(document.createTextNode(textComb))
     } else if (options[0].value == "Industry" || options[0].value == "Coles" ) {
         var match = text.match(/( - )(.*)$/);
         textComb = text.slice(0, match.index + 3);
+        if (options[4].checked && options[0].value == "Industry") textComb = textComb.trim();
         para.push(document.createTextNode(textComb))
     }
 }
