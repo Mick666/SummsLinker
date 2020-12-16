@@ -1,126 +1,95 @@
-body {
-    margin: 40px;
-    background-color: #DCDCDC;
+* {
+    font-family: 'Roboto', sans-serif;
 }
-.hidden{
-    visibility: hidden;
-    grid-row: 2;
-    grid-column: 2;
-    width: 0px;
+
+body {
+    margin: 0px;
+}
+
+a {
+    color: #3f51b5;
+}
+
+.header-text {
+    position: absolute;
+    padding: 30px;
+    background-color: #3f51b5;
+    color: white;
+    margin: 0px;
+    left:0; right:0;
+    height: 50px;
+    padding-left: 230px;
+}
+
+.options-sidebar {
+    position: absolute;
+    background-color: #424242;
+    top: 0;
+    width: 200px;
+    bottom: 0;
+    padding-top: 80px;
+    color: white;
+    padding-left: 15px;
 }
 
 .wrapper {
-    margin: auto;
-    display: grid;
-    grid-template-columns: 240px auto auto 80px auto;
-    grid-template-rows: auto;
-    grid-gap: 15px;
-}
-.row {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto auto auto auto auto;
-    grid-gap: 15px;
-}
-.box {
-    background-color: #444;
-    color: #fff;
-    border-radius: 5px;
-    padding: 20px;
-} 
-.butts {
-    width: 50px;
-    align-self: center;
-    background-color: #444;
-    font-size: 20px;
-    text-align: center;
-    outline: 1px solid lightgrey;
+    position: absolute;
+    left: 215px;
+    top: 80px;
+    right: 0;
+    bottom: 0;
+    background-color: #303030;
+    padding-left: 10vw;
     color: white;
+    display: flex;
 }
-.buttons{
-    justify-content: center;
-    align-items: center;
-}
-.topButts{
-    font-size: 75%;
-    width: 100px;
-}
-#allButt{
-    margin: auto;
-    width: 75px;
-}
-#allReset {
-    position: relative;
-}
-.output {
-    background-color: #444;
-    height: 700px;
-    border-radius: 5px;
-    border: 3px solid darkgray;
-    padding: 10px;
-    font: 400 13.3333px Arial;
-    font-size: 75%;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    letter-spacing: normal;
-    word-spacing: normal;
-    flex-direction: column;
-    cursor: text;
-    overflow-wrap: break-word;
-}
-.outputs {
-    display: grid;
-    grid-template-columns: 600px;
-    grid-template-rows: 135px 650px;
-    align-items: center;
-    color: white;
-}
+
 .text {
-    background-color: #DCDCDC;
-    color: black;
+    font-size: 2.125rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    line-height: 1.235;
+    letter-spacing: 0.00735em;
 }
-a {
-    color: black;
-}
-.visibleBox{
-    grid-row: 1;
-    grid-column: 2 / 4;
-    grid-template-rows: 95px auto;
-}
-.indivLinkButt{
-    display: none;
-}
-#linkOverflowOption{
-    display: none;
-}
-/* .optionButtons{
-    padding-left: 5px;
-}
-*/
-.optionsSubDiv {
-    grid-row: 2;
-    display: inline-grid;
-    border: ridge 2px grey;
-    padding-left: 5px;
-}
-#options {
-    padding: 0px;
-}
-#textandlinks {
-    padding-bottom: 0px;
-    padding-left: 0px;
-} 
-#inputStyle{
+
+.checkbox-parent, .button-parent {
     display: grid;
-    padding-left: 0px;
+    margin-bottom: 25px;
 }
-#summaries {
-    padding-left: 0px;
+
+.buttons {
+    inline-size: max-content;
+    margin-bottom: 15px;
+    border: 0;
+    border-radius: 4px;
+    font-weight: 500;
+    line-height: 1.75;
+    padding: 6px 16px;
+    font-size: 0.875rem;
 }
-.instructions{
-    grid-row: 3;
+
+.buttons:hover {
+    background-color: #767a76; 
+    color: white;
+  }
+
+.menus {
+    padding-bottom: 10px;
 }
-#spacing{
-    padding: 7px;
+
+.checkbox {
+    padding-bottom: 10px;
+}
+
+.output-parent {
+    display: none;
+    margin-left: 150px;
+}
+
+.output {
+    width: 25vw;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
 }
