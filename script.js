@@ -7,17 +7,9 @@ Insert all your summaries and the associated links into this text box\
 , then hit Create All Links to link them. \nThe placement of the links doesn\'t matter\
  (i.e., it doesn\'t matter if they\'re all at the top or the bottom, or so on.\
 \nThe first link will be added to the first summary and so on.'
-const demoText = 'The Australian Financial Review reports the Australian government has launched a challenge with the World Trade Organisation over Chinese trade sanctions on Australian exports. The government said it was confident it had a strong case for the WTO to overturn tariffs on barley exports, however it could be years before a result could be reached through the organisation.\n\
-The Australian Financial Review reports that a rebound in Australia’s economic outlook has cut $11.2billion off the projected cost of the JobKeeper stimulus package. Improved forecasts around the number of Australians returning to work has led Treasury to revise the total cost of the JobKeeper payment from $101.3bn to about $90bn.\n\
-The Australian Financial Review reports the federal government has announced that nine of the existing business and investment visas currently offered will be cut back to four as part of an effort to streamline visas, while the requirements will be adjusted for the remaining visas. Acting Immigration Minister Alan Tudge said the changes would protect Australia’s interests, while the number of places available in the overall investment visa program will still double from 6862 in 2019-20 to 13,500 for 2020-2021.\n\
-The ABC reports the current secretary-general of the Attorney-General’s Department, Chris Moraitis, will move to the Office of the Special Investigator to serve as its secretary general, while Victorian Supreme Court Judge Mark Weinberg QC will serve as the special investigator to examine the findings of the Brereton inquiry into alleged Afghanistan war crimes. Former Queensland Police deputy commissioner Ross Barnett will take up the role of director of investigations, while Home Affairs Minister Peter Dutton said the Office of the Special Investigator would start work on January 4.\n\
-https://www.google.com.au/\n\
-https://www.google.com.au/\n\
-https://www.google.com.au/\n\
-https://www.google.com.au/\n'
 
 $(document).ready(() => {
-    $('#singularTextBox').val(demoText)
+    $('#singularTextBox').attr('placeholder', placeholderText)
 })
 
 function createOutputField(output) {
